@@ -10,6 +10,7 @@ public class FindCharAppearOnce extends  SuperCodeClass{
             result=result^Integer.valueOf(array[i]);
         }
         return Integer.toString(result);
+
     }
 
     public static void main(String[] args) {
