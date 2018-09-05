@@ -28,6 +28,7 @@ public class LongestContinuousSeries extends SuperCodeClass{
                 max = max > length ? max : length;
             }
         }
+
         return Integer.toString(max);
     }
 
