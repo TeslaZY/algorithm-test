@@ -66,7 +66,6 @@ public class BigNumberSub extends SuperCodeClass{
         }
 
         return str.toString();
-
     }
 
     public static void main(String[] args) {
