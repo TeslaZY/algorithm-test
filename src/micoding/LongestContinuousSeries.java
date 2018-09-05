@@ -12,6 +12,7 @@ public class LongestContinuousSeries extends SuperCodeClass{
             arrays[i]=Integer.valueOf(str_arrays[i]);
         }
         Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+
         int max = 0;
         for (int i = 0; i < arrays.length; i++) {
             if (map.get(arrays[i])==null) {
