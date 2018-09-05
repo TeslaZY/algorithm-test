@@ -1,5 +1,7 @@
 package micoding;
 
+import java.util.Scanner;
+
 public class CrossQueue extends SuperCodeClass{
     @Override
     public String solution(String line){
@@ -9,6 +11,7 @@ public class CrossQueue extends SuperCodeClass{
         char[] s2 = arrays[1].toCharArray();
         char[] s3 = arrays[2].toCharArray();
         boolean[] s3_flag = new boolean[s3.length];
+        boolean flag1=false,flag2=false;
         if(s1.length+s2.length!=s3.length){
             result = "false";
         }else {
@@ -18,15 +21,30 @@ public class CrossQueue extends SuperCodeClass{
                     s3_flag[i] = true;
                     i++;
                     j++;
+                    if(j==s1.length){
+                        flag1=true;
+                    }
                 }
                 while (k < s2.length && s3[i] == s2[k]) {
                     s3_flag[i] = true;
                     i++;
                     k++;
+                    if(k==s2.length){
+                        flag2=true;
+                    }
+
                 }
-                if ((j < s1.length &&s3[i] != s1[j])||(k < s2.length&& s3[i] != s2[k])) {
+                if (flag1&&flag2) {
+                    break;
+                }else if(flag1&&s3[i]!=s2[k]){
                     break;
                 }
+                else if(flag2&&s3[i]!=s1[j]){
+                    break;
+                }else if(s3[i]!=s1[j]&&s3[i]!=s2[k]){
+                    break;
+                }
+
             }
             if (s3_flag[s3.length - 1] == true) {
                 result = "true";
@@ -38,7 +56,11 @@ public class CrossQueue extends SuperCodeClass{
     }
 
     public static void main(String[] args){
-        String line = input();
-        System.out.println(new CrossQueue().solution(line));
+        String line;
+        Scanner in = new Scanner(System.in);
+        while(in.hasNextLine()){
+            line=in.nextLine();
+            System.out.println(new CrossQueue().solution(line));
+        }
     }
 }
