@@ -6,7 +6,6 @@ public class BigNumberSub extends SuperCodeClass{
     @Override
     public String solution(String line){
         int i,aint,bint;
-
         String[] arrays = line.split(" - ");
         char[] a = new StringBuffer(arrays[0]).reverse().toString().toCharArray();
         char[] b = new StringBuffer(arrays[1]).reverse().toString().toCharArray();
