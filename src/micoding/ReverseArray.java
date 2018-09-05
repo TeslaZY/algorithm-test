@@ -22,7 +22,6 @@ public class ReverseArray extends SuperCodeClass {
         for(j=0;j<=i;j++){
             arrayList.add(arrays[j]);
         }
-
         int mid = arrays.length/2;
         return arrayList.get(mid);
     }
