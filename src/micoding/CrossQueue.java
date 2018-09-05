@@ -52,6 +52,7 @@ public class CrossQueue extends SuperCodeClass{
                 result = "false";
             }
         }
+
         return result;
     }
 
