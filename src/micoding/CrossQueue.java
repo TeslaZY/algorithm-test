@@ -11,25 +11,28 @@ public class CrossQueue extends SuperCodeClass{
         boolean[] s3_flag = new boolean[s3.length];
         if(s1.length+s2.length!=s3.length){
             result = "false";
-        }
-        int i=0,j=0,k=0;
-        while(i<s3.length){
-            while(j<s1.length&&s3[i]==s1[j]){
-                s3_flag[i]=true;
-                i++;j++;
+        }else {
+            int i = 0, j = 0, k = 0;
+            while (i < s3.length) {
+                while (j < s1.length && s3[i] == s1[j]) {
+                    s3_flag[i] = true;
+                    i++;
+                    j++;
+                }
+                while (k < s2.length && s3[i] == s2[k]) {
+                    s3_flag[i] = true;
+                    i++;
+                    k++;
+                }
+                if ((j < s1.length &&s3[i] != s1[j])||(k < s2.length&& s3[i] != s2[k])) {
+                    break;
+                }
             }
-            while(k<s2.length&&s3[i]==s2[k]){
-                s3_flag[i]=true;
-                i++;k++;
+            if (s3_flag[s3.length - 1] == true) {
+                result = "true";
+            } else {
+                result = "false";
             }
-            if((j>=s1.length&&k>=s2.length)||(s3[i]!=s1[j]&&s3[i]!=s2[k])){
-                break;
-            }
-        }
-        if(s3_flag[s3.length-1]==true){
-            result = "true";
-        }else{
-            result = "false";
         }
         return result;
     }
