@@ -15,6 +15,6 @@ public class FindCharAppearOnce extends  SuperCodeClass{
 
     public static void main(String[] args) {
         String line = input();
-        System.out.println(new BigNumberSub().solution(line));
+        System.out.println(new FindCharAppearOnce().solution(line));
     }
 }
