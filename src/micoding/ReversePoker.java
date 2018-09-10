@@ -12,9 +12,11 @@ public class ReversePoker {
             N = in.nextInt();
             M = in.nextInt();
             boolean[][] matrix = new boolean[N][M];
+            show(matrix,N,M);
             for(int j=0;j<N;j++){
                 for(int k=0;k<M;k++){
                     reverse(matrix,j,k,N,M);
+                    show(matrix,N,M);
                 }
             }
             int result = 0;
@@ -37,19 +39,30 @@ public class ReversePoker {
         return  result;
     }
 
-    public static void reverse_poker(boolean value){
-        if(value == true){
-            value =false;
+    public static void reverse_poker(boolean [][]matrix,int col,int row){
+        if(matrix[col][row] == true){
+            matrix[col][row]  =false;
         }else{
-            value = true;
+            matrix[col][row]  = true;
         }
+    }
+
+    public static void show(boolean[][] matrix,int N,int M){
+        int i,j;
+        for(i=0;i<N;i++){
+            for(j=0;j<M;j++){
+                System.out.print(matrix[i][j]==true? "正 " : "反 ");
+            }
+            System.out.println();
+        }
+        System.out.println("-----------------------------------------------");
     }
 
     public static void reverse(boolean[][] matrix,int col, int row,int N,int M){
         for(int i = -1;i<2;i++){
             for(int j = -1;j<2;j++){
-                if(isOutofIndex(col+i,row+j,N,M)){
-                    reverse_poker(matrix[col][row]);
+                if(!isOutofIndex(col+i,row+j,N,M)){
+                    reverse_poker(matrix,col+i,row+j);
                 }
             }
         }
