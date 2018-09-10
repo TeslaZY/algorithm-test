@@ -2,6 +2,9 @@ package sort;
 
 import java.util.Scanner;
 
+/**
+ * @author TeslaZY
+ */
 public class SortTest {
     public static void main(String[] args){
         String[] input;

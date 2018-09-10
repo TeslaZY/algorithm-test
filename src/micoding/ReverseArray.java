@@ -3,6 +3,9 @@ package micoding;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * @author TeslaZY
+ */
 public class ReverseArray extends SuperCodeClass {
 
     @Override

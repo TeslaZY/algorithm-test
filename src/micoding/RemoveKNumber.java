@@ -2,6 +2,9 @@ package micoding;
 
 import java.util.Scanner;
 
+/**
+ * @author TeslaZY
+ */
 public class RemoveKNumber extends SuperCodeClass{
     @Override
     public String solution(String line){

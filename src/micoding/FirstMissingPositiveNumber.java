@@ -3,6 +3,9 @@ package micoding;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * @author TeslaZY
+ */
 public class FirstMissingPositiveNumber extends SuperCodeClass{
     @Override
     public String solution(String line){

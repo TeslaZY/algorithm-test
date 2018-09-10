@@ -3,6 +3,9 @@ package micoding;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author TeslaZY
+ */
 public class LongestContinuousSeries extends SuperCodeClass{
     @Override
     public String solution(String line) {

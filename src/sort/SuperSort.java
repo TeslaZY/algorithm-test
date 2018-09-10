@@ -1,5 +1,8 @@
 package sort;
 
+/**
+ * @author TeslaZY
+ */
 public class SuperSort {
 
     protected static boolean less(Comparable v, Comparable w){

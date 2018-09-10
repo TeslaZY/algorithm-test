@@ -2,6 +2,9 @@ package micoding;
 
 import java.util.Scanner;
 
+/**
+ * @author TeslaZY
+ */
 public class MinimumNumberOfeEchange extends SuperCodeClass{
     @Override
     public String solution(String line){

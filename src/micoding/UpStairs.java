@@ -1,7 +1,6 @@
 package micoding;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class UpStairs extends SuperCodeClass {

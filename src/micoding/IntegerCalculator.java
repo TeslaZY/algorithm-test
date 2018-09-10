@@ -4,6 +4,9 @@ import java.util.Scanner;
 import java.util.Stack;
 import java.util.regex.*;
 
+/**
+ * @author TeslaZY
+ */
 public class IntegerCalculator extends SuperCodeClass{
     @Override
     public String solution(String line) {

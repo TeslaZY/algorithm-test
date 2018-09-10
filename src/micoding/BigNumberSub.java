@@ -1,7 +1,8 @@
 package micoding;
 
-import java.util.*;
-
+/**
+ * @author TeslaZY
+ */
 public class BigNumberSub extends SuperCodeClass{
     @Override
     public String solution(String line){

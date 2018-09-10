@@ -1,5 +1,8 @@
 package micoding;
 
+/**
+ * @author TeslaZY
+ */
 public class FindCharAppearOnce extends  SuperCodeClass{
     @Override
     public String solution(String line){

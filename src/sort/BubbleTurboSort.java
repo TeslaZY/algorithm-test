@@ -2,6 +2,9 @@ package sort;
 
 import java.util.Scanner;
 
+/**
+ * @author TeslaZY
+ */
 public class BubbleTurboSort extends SuperSort{
     public static void sort(Comparable[] a){
         int N = a.length;

@@ -2,6 +2,9 @@ package micoding;
 
 import java.util.Scanner;
 
+/**
+ * @author TeslaZY
+ */
 public class SuperCodeClass {
 
     public static String input(){
@@ -17,4 +20,15 @@ public class SuperCodeClass {
         // 返回处理后的结果
         return line;
     }
+
+    /*
+        public static void main(String[] args){
+        String line;
+        Scanner in = new Scanner(System.in);
+        while(in.hasNextLine()){
+            line=in.nextLine();
+            System.out.println(new RemoveKNumber().solution(line));
+        }
+    }
+     */
 }
