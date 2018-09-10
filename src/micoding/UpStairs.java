@@ -1,23 +1,20 @@
 package micoding;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class UpStairs extends SuperCodeClass {
     @Override
     public String solution(String line) {
-
         int n = Integer.valueOf(line);
-        if (n > 0) {
-            if (1 == n) {
-                return Integer.toString(1);
-            } else if (2 == n) {
-                return Integer.toString(2);
-            } else {
-                return Integer.toString(Integer.valueOf(solution(Integer.toString(n-1)))+Integer.valueOf(solution(Integer.toString(n-2))));
-            }
-        } else{
-            return Integer.toString(0);
+        HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
+        map.put(1,1);
+        map.put(2,2);
+        for(int i=3;i<=n;i++){
+            map.put(i,map.get(i-1)+map.get(i-2));
         }
+        return Integer.toString(map.get(n));
     }
 
 
