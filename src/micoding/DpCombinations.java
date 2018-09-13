@@ -12,6 +12,9 @@ public class DpCombinations {
         for(i=0;i<str_arrays.length;i++){
             arr[i]=Integer.valueOf(str_arrays[i]);
         }
+
+
+        //此处以下嵌入算法
         int[][] dp = new int[arr.length][aim + 1];
         for (i = 0; i < dp.length; i++) {
             // 凑成0元的方法必然是什么货币都不用，只有1种
@@ -35,6 +38,8 @@ public class DpCombinations {
         }
         // 返回dp矩阵最右下角的值即为最后结果
         return Integer.toString(dp[arr.length - 1][aim]);
+
+        //此处以上嵌入算法
     }
 /*
     public static int process4(int[] arr, int aim) {
