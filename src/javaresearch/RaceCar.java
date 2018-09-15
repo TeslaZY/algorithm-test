@@ -1,4 +1,4 @@
-package search;
+package javaresearch;
 
 class RaceCar extends Car {
     @Override

@@ -1,4 +1,4 @@
-package search;
+package javaresearch;
 
 import java.util.*;
 public class WrappedString {

@@ -1,4 +1,4 @@
-package search;
+package javaresearch;
 
 public class Venus {
     public static void main(String[] args) {

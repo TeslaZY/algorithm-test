@@ -1,4 +1,4 @@
-package search;
+package javaresearch;
 
 public class Starter extends Thread {
     private int x = 2;

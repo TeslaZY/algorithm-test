@@ -7,28 +7,24 @@ import java.util.Scanner;
  */
 public class SuperCodeClass {
 
-    public static String input(){
+    public static String input() {
         Scanner in = new Scanner(System.in);
         String line = in.nextLine();
         return line;
     }
 
     public String solution(String line) {
-
-        // 在此处理单行数据
-
-        // 返回处理后的结果
         return line;
     }
 
     /*
-        public static void main(String[] args){
+    public static void main(String[] args) {
         String line;
         Scanner in = new Scanner(System.in);
-        while(in.hasNextLine()){
-            line=in.nextLine();
+        while (in.hasNextLine()) {
+            line = in.nextLine();
             System.out.println(new RemoveKNumber().solution(line));
         }
     }
-     */
+    */
 }
