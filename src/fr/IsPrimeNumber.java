@@ -14,26 +14,15 @@ import java.math.BigInteger;
  * Created by Tesla.Z on 2020/9/15
  */
 public class IsPrimeNumber {
-    static int[] prime = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
-    static BigInteger bV,mV,nV,kV;
-    static String N = "N\n";
-    static String Y = "Y\n";
     public static void main(String[] args) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter out = new BufferedWriter(new OutputStreamWriter(System.out));
+        IsPrimeNumber isPrimeNumber = new IsPrimeNumber();
         String input = in.readLine();
-        long value;
         while (input != null && !"".equals(input)) {
-//            long start = System.currentTimeMillis();
-            if(input.length()>6){
-                value = Long.valueOf(input);
-                out.write( isPrime3(value) ? Y : N);
-            }else {
-                out.write( isPrime4(Integer.valueOf(input)) ? Y : N);
-            }
+            long value = Long.valueOf(input);
+            out.write(isPrimeNumber.isPrime3(value));
             input = in.readLine();
-//            long end = System.currentTimeMillis();
-//            System.out.println(end - start);
         }
         out.flush();
     }
@@ -54,65 +43,39 @@ public class IsPrimeNumber {
 //        return "Y";
 //    }
 
-    public static boolean isPrime3(long n) {
-        if (n <= 1) return false;
-        if (n == 2) return true;
+
+    public String isPrime3(long n) {
+        long[] prime = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
+        String N = "N\n";
+        String Y = "Y\n";
+        if (n <= 1) return N;
+        if (n == 2) return Y;
         long s = 0, t = n - 1;
         while (t % 2 == 0) {
             ++s;
             t >>= 1;
         }// get n-1=2^s * t
+        BigInteger bV,mV,nV,kV;
         nV = BigInteger.valueOf(n);
-        long base,b,m,p;
         for (int i = 0; i < prime.length && prime[i] < n; ++i) {
-            base = prime[i];
-            b = 1; m = base; p = t;
-            bV = BigInteger.valueOf(b);
-            mV = BigInteger.valueOf(m);
-
+            long p = t;
+            bV = BigInteger.valueOf(1);
+            mV = BigInteger.valueOf(prime[i]);
             while (p != 0) { //get b=a^t
-                if (p % 2 != 0) {
-                    bV = bV.multiply(mV).mod(nV);
+                if ((p&1) != 0) {
+                    bV = bV.multiply(mV).remainder(nV);
                 }
-                mV = mV.multiply(mV).mod(nV) ;
+                mV = mV.multiply(mV).remainder(nV) ;
                 p >>= 1;
             }
             if (bV.longValue() == 1) continue;
             for (int j = 1; j <= s; ++j) { // double check
-                kV = bV.multiply(bV).mod(nV);
-                if (kV.longValue() == 1 && bV.longValue() != n - 1 && bV.longValue() != 1) return false;
+                kV = bV.multiply(bV).remainder(nV);
+                if (kV.longValue() == 1 && bV.longValue() != n - 1 && bV.longValue() != 1) return N;
                 bV = kV;
             }
-            if (bV.longValue() != 1) return false;
+            if (bV.longValue() != 1) return N;
         }
-        return true;
-    }
-
-    static boolean isPrime4(int n) {
-        if (n <= 1) return false;
-        if (n == 2) return true;
-        int s = 0, t = n - 1;
-        while (t % 2 == 0) {
-            ++s;
-            t >>= 1;
-        }// get n-1=2^s * t
-        for (int i = 0; i < 10 && prime[i] < n; ++i) {
-            int m = prime[i];
-            int b = 1, p = t;
-            while (p != 0) { //get b=a^t
-                if (p % 2 != 0)
-                    b = (int)(((long) b * m) % n);
-                m = (int)(((long)m * m) % n);
-                p >>= 1;
-            }
-            if (b == 1) continue;
-            for (int j = 1; j <= s; ++j) { // double check
-                int k = (int)(((long)b * b) % n);
-                if(k == 1 && b != n-1 && b!=1) return false;
-                b = k;
-            }
-            if (b != 1) return false;
-        }
-        return true;
+        return Y;
     }
 }
