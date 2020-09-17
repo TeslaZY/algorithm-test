@@ -22,7 +22,7 @@ public class IsPrimeNumber {
         String input = in.readLine();
         while (input != null && !"".equals(input)) {
             long value = Long.valueOf(input);
-            out.write(isPrime(value) ? Y : N);
+            out.write(isPrimeMiller(value) ? Y : N);
             input = in.readLine();
         }
         out.flush();
@@ -104,12 +104,10 @@ public class IsPrimeNumber {
         return composite(n, bases[x]);
     }
 
-    public String isPrimeMiller(long n) {
+    public static boolean isPrimeMiller(long n) {
         long[] prime = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
-        String N = "N\n";
-        String Y = "Y\n";
-        if (n <= 1) return N;
-        if (n == 2) return Y;
+        if (n <= 1)  return false;
+        if (n == 2)  return true;
         long s = 0, t = n - 1;
         while (t % 2 == 0) {
             ++s;
@@ -131,14 +129,14 @@ public class IsPrimeNumber {
             if (bV.longValue() == 1) continue;
             for (int j = 1; j <= s; ++j) { // double check
                 kV = bV.multiply(bV).remainder(nV);
-                if (kV.longValue() == 1 && bV.longValue() != n - 1 && bV.longValue() != 1) return N;
+                if (kV.longValue() == 1 && bV.longValue() != n - 1 && bV.longValue() != 1)  return false;
                 bV = kV;
             }
-            if (bV.longValue() != 1) return N;
+            if (bV.longValue() != 1)  return false;
         }
         bV = null;
         kV = null;
         mV = null;
-        return Y;
+         return true;
     }
 }

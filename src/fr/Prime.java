@@ -46,7 +46,7 @@ public class Prime {
         if (n == 2) {
             return true;
         }
-        if (n < 2 || n % 2 == 0) {
+        if (n < 2 || (n & 1) == 0) {
             return false;
         }
         if (n < 8) {
