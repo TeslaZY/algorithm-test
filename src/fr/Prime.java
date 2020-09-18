@@ -21,22 +21,20 @@ public class Prime {
     };
 
     public static boolean composite (long n, long[] bases) {
-        BigInteger nn = BigInteger.valueOf(n);
-        BigInteger thisMinusOne = nn.subtract(BigInteger.ONE);
-        BigInteger m = thisMinusOne;
-        int a = m.getLowestSetBit();
-        m = m.shiftRight(a);
+        BigInteger bigN = BigInteger.valueOf(n);
+        BigInteger nMinusOne = bigN.subtract(BigInteger.ONE);
+        BigInteger bidD = nMinusOne; // d
+        int shiftCount = bidD.getLowestSetBit();// t
+        bidD = bidD.shiftRight(shiftCount);//
 
         for (long base: bases) {
-            // Generate a uniform random on (1, this)
-            BigInteger b = BigInteger.valueOf(base);
-
-            int j = 0;
-            BigInteger z = b.modPow(m, nn);
-            while (!((j == 0 && z.equals(BigInteger.ONE)) || z.equals(thisMinusOne))) {
-                if (j > 0 && z.equals(BigInteger.ONE) || ++j == a)
+            BigInteger bigBase = BigInteger.valueOf(base);// base
+            int i = 0;
+            BigInteger z = bigBase.modPow(bidD, bigN); //z= a^d mod n
+            while (!((i == 0 && z.equals(BigInteger.ONE)) || z.equals(nMinusOne))) {
+                if (i > 0 && z.equals(BigInteger.ONE) || ++i == shiftCount)
                     return false;
-                z = z.modPow(BigInteger.valueOf(2), nn);
+                z = z.modPow(BigInteger.valueOf(2), bigN);
             }
         }
         return true;
