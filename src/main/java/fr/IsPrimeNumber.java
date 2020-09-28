@@ -15,15 +15,21 @@ import java.math.BigInteger;
  */
 public class IsPrimeNumber {
     public static void main(String[] args) throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(System.out));
         String N = "N\n";
         String Y = "Y\n";
-        String input = in.readLine();
-        while (input != null && !"".equals(input)) {
-            long value = Long.valueOf(input);
-            out.write(isPrimeMiller(value) ? Y : N);
-            input = in.readLine();
+//        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(System.out));
+//        String input = in.readLine();
+//        while (input != null && !"".equals(input)) {
+//            long value = Long.valueOf(input);
+//            out.write(isPrimeMiller(value) ? Y : N);
+//            input = in.readLine();
+//        }
+        for(int i = 100000000;i<Integer.MAX_VALUE;i++){
+            if(isPrimeMiller(i)){
+                out.write(String.valueOf(i));
+                break;
+            }
         }
         out.flush();
     }
