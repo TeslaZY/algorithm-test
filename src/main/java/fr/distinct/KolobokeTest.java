@@ -21,7 +21,7 @@ public class KolobokeTest extends AbstractTest {
             long end = System.currentTimeMillis();
 //            System.out.println((end - start));
             String memory = RamUsageEstimator.humanSizeOf(Set);
-            System.out.println((end - start)+"ms    "+RamUsageEstimator.sizeOf(Set)+"bytes");
+            System.out.println((end - start)+"ms    "+RamUsageEstimator.sizeOf(Set)/1045856+"bytes");
         }
     }
 }
