@@ -10,8 +10,8 @@ import static it.unimi.dsi.fastutil.Hash.*;
 public class FastutilTest extends AbstractTest {
     public static void main(String[] args) {
         int count = caseCount;
+        LongOpenHashBigSet Set = new LongOpenHashBigSet();
         for (int loop = loopCount; loop > 0; loop--){
-            LongOpenHashBigSet Set = new LongOpenHashBigSet(150000000,0.80f);
             long start = System.currentTimeMillis();
             long j = 1;
             for (long i = 0; i < count; i++) {
@@ -19,7 +19,8 @@ public class FastutilTest extends AbstractTest {
             }
             long end = System.currentTimeMillis();
 //            System.out.println((end - start));
-            System.out.println((end - start)+"ms    "+RamUsageEstimator.sizeOf(Set)+"bytes");
+            System.out.println((end - start)+"ms    "+RamUsageEstimator.sizeOf(Set)/1045856+"MB");
+            Set.clear();
         }
     }
 }

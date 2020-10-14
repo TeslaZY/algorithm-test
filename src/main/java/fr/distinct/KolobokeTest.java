@@ -11,17 +11,18 @@ public class KolobokeTest extends AbstractTest {
 
     public static void main(String[] args) {
         int count = caseCount;
+        HashLongSet Set = HashLongSets.newUpdatableSet();
         for (int loop = loopCount; loop > 0; loop--) {
-            HashLongSet Set = HashLongSets.newUpdatableSet(100000000);
             long start = System.currentTimeMillis();
             long j = 1;
-            for (long i = 0; i < count; i++) {
+            for (long i = 0; i < 10000; i++) {
                 Set.add(j++);
             }
             long end = System.currentTimeMillis();
 //            System.out.println((end - start));
             String memory = RamUsageEstimator.humanSizeOf(Set);
-            System.out.println((end - start)+"ms    "+RamUsageEstimator.sizeOf(Set)/1045856+"bytes");
+            System.out.println((end - start)+"ms    "+RamUsageEstimator.sizeOf(Set)/KB);
+            Set.clear();
         }
     }
 }

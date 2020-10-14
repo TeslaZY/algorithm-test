@@ -4,6 +4,7 @@ package fr.distinct;
 import gnu.trove.set.TLongSet;
 import gnu.trove.set.hash.THashSet;
 import gnu.trove.set.hash.TLongHashSet;
+import org.apache.lucene.util.RamUsageEstimator;
 
 public class TroveTest extends AbstractTest{
     public static void main(String[] args) {
@@ -16,7 +17,7 @@ public class TroveTest extends AbstractTest{
                 Set.add(j++);
             }
             long end = System.currentTimeMillis();
-            System.out.println((end-start));
+            System.out.println((end - start)+"ms    "+ RamUsageEstimator.sizeOf(Set)/1045856+"MB");
         }
     }
 }
