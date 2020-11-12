@@ -5,6 +5,7 @@ import java.util.HashSet;
 public class JavaUtilTest extends AbstractTest{
     public static void main(String[] args) {
         int count = caseCount;
+        long timeSpend = 0l;
         for (int loop = loopCount; loop > 0; loop--){
             HashSet<Long> Set = new HashSet();
             long start = System.currentTimeMillis();
@@ -13,7 +14,9 @@ public class JavaUtilTest extends AbstractTest{
                 Set.add(j++);
             }
             long end = System.currentTimeMillis();
-            System.out.println((end-start));
+            timeSpend += end - start;
+            System.out.println((end - start));
         }
+        System.out.println("average ：" + timeSpend/loopCount);
     }
 }
