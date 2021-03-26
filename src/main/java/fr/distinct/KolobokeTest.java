@@ -1,6 +1,8 @@
 package fr.distinct;
 
 import com.fr.stable.collections.map.IntSet;
+import com.koloboke.collect.set.hash.HashIntSet;
+import com.koloboke.collect.set.hash.HashIntSets;
 import com.koloboke.collect.set.hash.HashLongSet;
 import com.koloboke.collect.set.hash.HashLongSets;
 import net.openhft.hashing.LongHashFunction;
@@ -14,22 +16,23 @@ public class KolobokeTest extends AbstractTest {
     public static void main(String[] args) {
         int count = caseCount;
         int data[] = new int[caseCount];
-        Random r = new Random(1);
-        String[] sa = new String[count];
-//        for(int i = 0; i<caseCount;i++){
-//            data[i] = r.nextInt();
+//        Random r = new Random(1);
+//        String[] sa = new String[count];
+////        for(int i = 0; i<caseCount;i++){
+////            data[i] = r.nextInt();
+////        }
+//        for (int i = 0; i < sa.length; i++) {
+//            sa[i] = String.valueOf(i);
 //        }
-        for (int i = 0; i < sa.length; i++) {
-            sa[i] = String.valueOf(i);
-        }
         long timeSpend = 0l;
         for (int loop = loopCount; loop > 0; loop--) {
-            HashLongSet Set = HashLongSets.newUpdatableSet();
-
+//            HashLongSet Set = HashLongSets.newUpdatableSet();
+            HashIntSet Set = HashIntSets.newUpdatableSet();
             long start = System.currentTimeMillis();
             int j = 1;
             for (int i = 0; i < count; i++) {
-                Set.add(LongHashFunction.xx().hashChars(sa[i]));
+//                Set.add(LongHashFunction.xx().hashChars(sa[i]));
+                Set.add(j);
             }
             long end = System.currentTimeMillis();
             timeSpend += end - start;
