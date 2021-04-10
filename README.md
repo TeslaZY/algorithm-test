@@ -1,3 +1,2 @@
-# JavaDemo
-Java programming practice
-一些Java算法的小题目，自己写出来分享也欢迎大家帮助我优化，欢迎留言
+# algorithm-test
+汇集了日常过程中遇到的有趣的算法题目，在这里给出其中的解法
