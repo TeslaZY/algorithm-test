@@ -13,7 +13,7 @@ public class MinimumSpanningTree {
     public static void main(String[] args){
         try {
             StreamTokenizer in = new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
-//            StreamTokenizer in = new StreamTokenizer(new BufferedReader(new FileReader(new File("/Users/zhangyuyu/Downloads/9/mst6.in"))));
+//            StreamTokenizer in = new StreamTokenizer(new BufferedReader(new FileReader(new File("/Users/zhangyuyu/Downloads/9/mst4.in"))));
             BufferedWriter out = new BufferedWriter(new OutputStreamWriter(System.out));
             Edge[] edges = null;
             int n =0 ,m = 0;
@@ -34,30 +34,20 @@ public class MinimumSpanningTree {
                 }
                 break;
             }
-
             Arrays.sort(edges, new Comparator<Edge>() {
                 @Override
                 public int compare(Edge o1, Edge o2) {
                     return o1.weight - o2.weight ;
                 }
             });
-
             long result_weight = 0l;
             int[] parent = new int[n+1];
-            for(int i=1;i<=n;i++){
-                parent[i] = i;
-            }
-            int count = 0;
             for(int i=0;i<m;i++){
                 int node1 = find(parent,edges[i].begin);
                 int node2 = find(parent,edges[i].end);
                 if(node1 != node2){
                     parent[node1] = node2;
                     result_weight += edges[i].weight;
-                    count++;
-                    if(count==n-1){
-                        break;
-                    }
                 }
             }
 
@@ -68,7 +58,7 @@ public class MinimumSpanningTree {
     }
 
     public static int find(int[] parent, int node){
-        while(parent[node]!=node){
+        while(parent[node]>0){
             node = parent[node];
         }
         return node;
