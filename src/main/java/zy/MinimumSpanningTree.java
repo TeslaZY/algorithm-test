@@ -19,7 +19,7 @@ public class MinimumSpanningTree {
             int n =0 ,m = 0;
             while (in.nextToken() != StreamTokenizer.TT_EOF) {
                 n = (int) in.nval;
-                if(n==1) {System.out.println(0);return;}
+                if(n==1) {out.write('0');out.flush();return;}
                 in.nextToken();
                 m = (int) in.nval;
                 edges = new Edge[m];
@@ -34,34 +34,53 @@ public class MinimumSpanningTree {
                 }
                 break;
             }
+
             Arrays.sort(edges, new Comparator<Edge>() {
                 @Override
                 public int compare(Edge o1, Edge o2) {
                     return o1.weight - o2.weight ;
                 }
             });
+
             long result_weight = 0l;
             int[] parent = new int[n+1];
+
+//            long time1 = System.currentTimeMillis();
+            int count = 0;
             for(int i=0;i<m;i++){
-                int node1 = find(parent,edges[i].begin);
-                int node2 = find(parent,edges[i].end);
-                if(node1 != node2){
-                    parent[node1] = node2;
+                find(parent, edges[i].begin, edges[i].end);
+                if(result[0]!=result[1]){
+                    parent[result[0]] = result[1];
                     result_weight += edges[i].weight;
+                    count++;
+                    if(count==n-1){
+                        break;
+                    }
                 }
             }
+//            long time2 = System.currentTimeMillis();
+//            System.out.println(time2-time1);
 
-            System.out.println(result_weight);
+            out.write(String.valueOf(result_weight));
+            out.flush();
         }catch (Exception e){
             e.printStackTrace();
         }
     }
 
-    public static int find(int[] parent, int node){
-        while(parent[node]>0){
-            node = parent[node];
+    public static int[] result = new int[2];
+
+    public static void find(int[] parent, int nodeStart , int nodeEnd){
+        while(parent[nodeStart] > 0 || parent[nodeEnd] > 0){
+            if(parent[nodeStart] != 0){
+                nodeStart = parent[nodeStart];
+            }
+            if(parent[nodeEnd] != 0){
+                nodeEnd = parent[nodeEnd];
+            }
         }
-        return node;
+        result[0] = nodeStart;
+        result[1] = nodeEnd;
     }
 }
 
