@@ -10,6 +10,8 @@ import java.io.*;
 public class Template {
     public static void main(String[] args) throws IOException{
         StreamTokenizer in = new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
+        InputStream input = System.in;
+//        ObjectInputStream in = new ObjectInputStream(input);
         BufferedWriter out = new BufferedWriter(new OutputStreamWriter(System.out));
 
         while ((int) in.nval != -1) {
